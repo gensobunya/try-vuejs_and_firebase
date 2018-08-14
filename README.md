@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+This is a tutorial in @nabettu's book
+
+[BOOTH link](https://booth.pm/ja/items/829853)
+
 ## Build Setup
 
 ``` bash
