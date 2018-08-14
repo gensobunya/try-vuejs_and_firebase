@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import marked from 'marked';
 export default {
  name: 'editor',
  props: ['user'],
