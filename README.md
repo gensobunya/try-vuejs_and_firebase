@@ -22,4 +22,4 @@ npm run build
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## comment
-Jestテスト部分はテキスト外のため、自力で実装しています
+TDDに興味があったので、テキスト外学習としてVue-test-util+Jestでテストコードを書きました
