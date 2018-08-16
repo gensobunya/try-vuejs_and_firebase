@@ -2,7 +2,7 @@
 
 > A Vue.js project
 
-This is a tutorial in @nabettu's book
+This is a tutorial in [nabettu](https://github.com/nabettu)'s book
 
 [BOOTH link](https://booth.pm/ja/items/829853)
 
