@@ -1,11 +1,13 @@
 <template>
  <div id="home">
  <h1>{{ msg }}</h1>
- <button @click="googleLogin">Google アカウントでログイン</button>
+ <button @click="googleLogin" class="login">Google アカウントでログイン</button>
  </div>
 </template>
 
 <script>
+import firebase from 'firebase';
+
 export default {
  name: 'home',
  data () {

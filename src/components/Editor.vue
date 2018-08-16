@@ -2,7 +2,7 @@
 <div class="editor">
  <h1> エディター画面</h1>
  <span>{{ user.displayName }}</span>
- <button @click="logout"> ログアウト</button>
+ <button @click="logout" class="logout"> ログアウト</button>
     <div>
         <div class="memoListWrapper">
             <div class="memoList" v-for="(memo, index) in memos" v-bind:key="index" @click="selectMemo(index)" :data-selected="index == selectedIndex">
@@ -19,6 +19,7 @@
 </template>
 <script>
 import marked from 'marked';
+import firebase from 'firebase';
 
 export default {
     name: 'editor',
