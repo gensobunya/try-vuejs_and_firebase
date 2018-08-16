@@ -1,7 +1,7 @@
 <template>
 <div class="editor">
  <h1> エディター画面</h1>
- <span>{{ user.displayName }}</span>
+ <span class="displayName">{{ user.displayName }}</span>
  <button @click="logout" class="logout"> ログアウト</button>
     <div>
         <div class="memoListWrapper">
@@ -20,6 +20,16 @@
 <script>
 import marked from 'marked';
 import firebase from 'firebase';
+
+const config = {
+  apiKey: "AIzaSyCcNrnMgdYCtnafz2CRMsLIetv7xputbCs",
+  authDomain: "mymarkdown-3b8fc.firebaseapp.com",
+  databaseURL: "https://mymarkdown-3b8fc.firebaseio.com",
+  projectId: "mymarkdown-3b8fc",
+  storageBucket: "",
+  messagingSenderId: "590689053001"
+};
+firebase.initializeApp(config);
 
 export default {
     name: 'editor',
