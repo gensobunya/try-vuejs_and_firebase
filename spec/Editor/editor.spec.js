@@ -32,10 +32,9 @@ describe("Editor.vue", () => {
         })
 
         //オペレーション
-        wrapper.find(".markdown").setValue(testmemo) //タイトルに反映
-        data.memos[data.selectedIndex].markdown = testmemo //プレビューに反映
+        wrapper.find(".markdown").setValue(testmemo) //入力
         console.log(wrapper.html())
-
+        
         //記載内容の一致を確認
         expect(wrapper.find(".memoList").exists()).toBe(true)
         expect(wrapper.find(".memoTitle").exists()).toBe(true)
@@ -51,11 +50,9 @@ describe("Editor.vue", () => {
         
         //オペレーション
         wrapper.find(".markdown").setValue(testmemo)
-        data.memos[data.selectedIndex].markdown = testmemo
         wrapper.find(".addMemoBtn").trigger("click")//メモ作成ボタン押下
         wrapper.findAll(".memoList").at(1).trigger("click")//メモリストから新しいメモ選択
         wrapper.find(".markdown").setValue(testmemo2)//入力
-        data.memos[data.selectedIndex].markdown = testmemo2//データ追加
         console.log(wrapper.html())
 
         //追加した内容が表示されているか確認
@@ -69,14 +66,12 @@ describe("Editor.vue", () => {
             data(){return {data}}
         })
         
-        wrapper.find(".markdown").setValue(testmemo)
-        data.memos[data.selectedIndex].markdown = testmemo
-
         //オペレーション
+
+        wrapper.find(".markdown").setValue(testmemo)
         wrapper.find(".addMemoBtn").trigger("click")//メモ作成ボタン押下
         wrapper.findAll(".memoList").at(1).trigger("click")//メモリストから新しいメモ選択
         wrapper.find(".markdown").setValue(testmemo2)//入力
-        data.memos[data.selectedIndex].markdown = testmemo2//データ追加
         wrapper.findAll(".memoList").at(0).trigger("click")//メモリストから1つめのメモ選択
         wrapper.find(".deleteMemoBtn").trigger("click")//データ削除
         console.log(wrapper.html())
