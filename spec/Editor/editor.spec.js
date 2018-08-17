@@ -34,10 +34,10 @@ describe("Editor.vue", () => {
             data(){return {data}}
         })
 
+        console.log(wrapper.html())
         //オペレーション
         wrapper.find(".markdown").setValue(testmemo) //入力
-        console.log(wrapper.html())
-        
+            
         //記載内容の一致を確認
         expect(wrapper.find(".memoList").exists()).toBe(true)
         expect(wrapper.find(".memoTitle").exists()).toBe(true)
