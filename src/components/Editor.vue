@@ -39,7 +39,9 @@
             </v-textarea>
         </v-flex>
         <v-flex>
-            <v-card light v-html="preview()"></v-card>
+            <v-card light tile>
+                <div class="preview" v-html="preview()"></div>
+            </v-card>
         </v-flex>
     </v-layout>
 </v-container>
@@ -135,6 +137,10 @@ export default {
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.preview{
+    padding: 1em;
 }
 
 .buttonWrapper{
