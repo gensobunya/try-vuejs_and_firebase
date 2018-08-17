@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount,createLocalVue  } from '@vue/test-utils'
 import Vuetify from 'vuetify'
 import App from "@/App.vue"
 import Editor from "@/components/Editor.vue"
@@ -6,7 +6,13 @@ import Home from "@/components/Home.vue"
 
 describe("App.vue", () => {
     it("ログアウト状態のときはHomeをレンダリング", () => {
-      const wrapper = shallowMount(App,{
+    // Vueインスタンスを別で作成する
+    const localVue = createLocalVue()
+    // そのVueインスタンスにVuetifyを取り込む
+    localVue.use(Vuetify)
+
+    const wrapper = shallowMount(App,{
+        localVue,
         data() {
             return {
                 isLogin: false,
@@ -18,11 +24,17 @@ describe("App.vue", () => {
       expect(wrapper.find(Home).exists()).toBe(true)
     })
     it("ログイン状態のときはEditorをレンダリング", () => {
-        const wrapper = shallowMount(App,{
-          data() {
-              return {
-                  isLogin: true,
-                  userData: null,
+    // Vueインスタンスを別で作成する
+    const localVue = createLocalVue()
+    // そのVueインスタンスにVuetifyを取り込む
+    localVue.use(Vuetify)
+
+    const wrapper = shallowMount(App,{
+        localVue,
+        data() {
+            return {
+                isLogin: true,
+                userData: null,
               }
           }
         })

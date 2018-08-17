@@ -1,26 +1,18 @@
 {
   "name": "mymarkdown",
-  "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "",
-  "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "test": "jest"
+    "test": "jest",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "firebase": "^5.3.1",
     "vue": "^2.5.11",
-    "vuetify": "^1.1.13"
+    "vuetify": "^1.0.19"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.24",
     "babel-core": "^6.26.0",
@@ -35,12 +27,18 @@
     "marked": "^0.4.0",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
+    "vue-cli-plugin-vuetify": "^0.1.6",
     "vue-jest": "^2.6.0",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "jest": {
     "moduleFileExtensions": [
       "js",
@@ -54,5 +52,8 @@
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
     }
-  }
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "A Vue.js project"
 }
