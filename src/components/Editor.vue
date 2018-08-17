@@ -1,12 +1,25 @@
 <template>
-<v-container>
-<div class="editor">
- <h1> エディター画面</h1>
- <span class="displayName">{{ user.displayName }}</span>
- <v-btn small color="info" @click="logout" class="logout">Logout</v-btn>
-    <div>
-
-        <v-layout row class="memoListWrapper">
+<v-container align-center grid-list-xl wrap>
+    <v-layout column class="header">
+        <v-flex class="title">
+            <h1>MyMarkdown</h1>
+            <v-icon light>account_box</v-icon><span class="displayName">{{ user.displayName }}</span>
+            <v-btn small color="info" @click="logout" class="logout">Logout</v-btn>
+        </v-flex>
+        <v-flex class="buttonWrapper">
+            <v-btn fab dark small color="primary" class="addMemoBtn ctlbtn" @click="addMemo">
+                <v-icon dark>add</v-icon>
+            </v-btn>
+            <v-btn fab dark small color="red" class="deleteMemoBtn ctlbtn" @click="deleteMemo" v-if="memos.length > 1" >
+                <v-icon dark>delete</v-icon>
+            </v-btn>
+            <v-btn fab dark small color="info" class="saveMemosBtn ctlbtn" @click="saveMemos">
+                <v-icon dark>backup</v-icon>
+            </v-btn>
+        </v-flex>
+    </v-layout>
+    <v-layout class="mainarea">
+        <v-flex class="sidemenu">
             <v-list>
             <template v-for="(memo, index) in memos">
                 <v-list-tile class="memoList" v-bind:key="index" @click="selectMemo(index)" :data-selected="index == selectedIndex">
@@ -17,23 +30,18 @@
                 <v-divider v-if="index + 1 < memos.length" :key="index"></v-divider>
             </template>
             </v-list>
-
-            <div class="buttonWrapper">
-                <v-btn fab dark small color="primary" class="addMemoBtn" @click="addMemo">
-                    <v-icon dark>add</v-icon>
-                </v-btn>
-                <v-btn fab dark small color="red" class="deleteMemoBtn" @click="deleteMemo" v-if="memos.length > 1" >
-                    <v-icon dark>delete</v-icon>
-                </v-btn>
-                <v-btn fab dark small color="info" class="saveMemosBtn" @click="saveMemos">
-                    <v-icon dark>backup</v-icon>
-                </v-btn>
-            </div>
-        </v-layout>
-        <textarea class="markdown" v-model="memos[selectedIndex].markdown"></textarea>
-        <div class="preview" v-html="preview()"></div>
-    </div>
-</div>
+        </v-flex>
+        <v-flex>
+            <v-textarea class="markdown" v-model="memos[selectedIndex].markdown"
+                box
+                label="MarkdownMemo"
+                auto-grow>
+            </v-textarea>
+        </v-flex>
+        <v-flex>
+            <v-card light v-html="preview()"></v-card>
+        </v-flex>
+    </v-layout>
 </v-container>
 </template>
 <script>
@@ -99,44 +107,43 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.memoListWrapper {
- width: 19%;
- float: left;
- border-top: 1px solid #000;
+.mainarea{
+    height: 500px;
+}
+
+.sidemenu{
+    width:5%;
+}
+.v-list {
+    border-top: 1px solid #000;
 }
 .memoList {
- padding: 10px;
- box-sizing: border-box;
- text-align: left;
- border-bottom: 1px solid #000;
- &:nth-child(even) {
- background-color: #ccc;
- }
- &[data-selected="true"] {
- background-color: #ccf;
- }
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+    border-bottom: 1px solid #000;
+    &:nth-child(even) {
+        background-color: #ccc;
+    }
+    &[data-selected="true"] {
+        background-color: #ccf;
+    }
 }
 
 .memoTitle {
- height: 1.5em;
- margin: 0;
- white-space: nowrap;
- overflow: hidden;
+    height: 1.5em;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
 }
-.addMemoBtn {
- margin-top: 20px;
+
+.buttonWrapper{
+    display: flex;
+    margin-bottom: 1em;
 }
-.markdown {
- float: left;
- width: 40%;
- height: 500px;
-}
-.preview {
- float: left;
- width: 40%;
- text-align: left;
-}
-.deleteMemoBtn {
- margin: 10px;
+
+.ctlbtn {
+    display: flex;
+    margin: 5px;
 }
 </style>
