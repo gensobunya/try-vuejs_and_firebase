@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
+import Vuetify from 'vuetify'
 import Home from "@/components/Home.vue"
 import firebase from 'firebase';
 
@@ -16,6 +17,6 @@ describe("Home.vue", () => {
   it("ログインボタンをレンダリングする", () => {
     const wrapper = shallowMount(Home)
 
-    expect(wrapper.find("button.login").exists()).toBe(true)
+    expect(wrapper.find(".login").exists()).toBe(true)
   })
 })

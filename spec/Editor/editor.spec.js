@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
+import Vuetify from 'vuetify'
 import Editor from "@/components/Editor.vue"
 import marked from 'marked';
 
@@ -52,7 +53,7 @@ describe("Editor.vue", () => {
         
         //オペレーション
         wrapper.find(".markdown").setValue(testmemo)
-        wrapper.find(".addMemoBtn").trigger("click")//メモ作成ボタン押下
+        wrapper.find(".addMemoBtn").trigger("click")//メモ作成ボタン押下...v-bottunの時に動作しない…
         wrapper.findAll(".memoList").at(1).trigger("click")//メモリストから新しいメモ選択
         wrapper.find(".markdown").setValue(testmemo2)//入力
         console.log(wrapper.html())

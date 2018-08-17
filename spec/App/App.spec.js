@@ -1,9 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
+import Vuetify from 'vuetify'
 import App from "@/App.vue"
 import Editor from "@/components/Editor.vue"
 import Home from "@/components/Home.vue"
- 
-  describe("App.vue", () => {
+
+describe("App.vue", () => {
     it("ログアウト状態のときはHomeをレンダリング", () => {
       const wrapper = shallowMount(App,{
         data() {

@@ -1,8 +1,10 @@
 <template>
+ <v-container>
  <div id="home">
- <h1>{{ msg }}</h1>
- <button @click="googleLogin" class="login">Google アカウントでログイン</button>
+    <h1>{{ msg }}</h1>
+    <v-btn color="info" @click="googleLogin" class="login">Google アカウントでログイン</v-btn>
  </div>
+ </v-container>
 </template>
 
 <script>

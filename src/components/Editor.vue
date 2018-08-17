@@ -1,21 +1,40 @@
 <template>
+<v-container>
 <div class="editor">
  <h1> エディター画面</h1>
  <span class="displayName">{{ user.displayName }}</span>
- <button @click="logout" class="logout"> ログアウト</button>
+ <v-btn small color="info" @click="logout" class="logout">Logout</v-btn>
     <div>
-        <div class="memoListWrapper">
-            <div class="memoList" v-for="(memo, index) in memos" v-bind:key="index" @click="selectMemo(index)" :data-selected="index == selectedIndex">
-                <p class="memoTitle">{{ displayTitle(memo.markdown) }}</p>
+
+        <v-layout row class="memoListWrapper">
+            <v-list>
+            <template v-for="(memo, index) in memos">
+                <v-list-tile class="memoList" v-bind:key="index" @click="selectMemo(index)" :data-selected="index == selectedIndex">
+                    <v-list-tile-content>
+                        <v-list-tile-title class="memoTitle">{{ displayTitle(memo.markdown) }}</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+                <v-divider v-if="index + 1 < memos.length" :key="index"></v-divider>
+            </template>
+            </v-list>
+
+            <div class="buttonWrapper">
+                <v-btn fab dark small color="primary" class="addMemoBtn" @click="addMemo">
+                    <v-icon dark>add</v-icon>
+                </v-btn>
+                <v-btn fab dark small color="red" class="deleteMemoBtn" @click="deleteMemo" v-if="memos.length > 1" >
+                    <v-icon dark>delete</v-icon>
+                </v-btn>
+                <v-btn fab dark small color="info" class="saveMemosBtn" @click="saveMemos">
+                    <v-icon dark>backup</v-icon>
+                </v-btn>
             </div>
-            <button class="addMemoBtn" @click="addMemo"> メモの追加</button>
-            <button class="deleteMemoBtn" v-if="memos.length > 1" @click="deleteMemo"> 選択中のメモの削除</button>
-            <button class="saveMemosBtn" @click="saveMemos"> メモの保存</button>
-        </div>
+        </v-layout>
         <textarea class="markdown" v-model="memos[selectedIndex].markdown"></textarea>
         <div class="preview" v-html="preview()"></div>
     </div>
 </div>
+</v-container>
 </template>
 <script>
 import marked from 'marked';
