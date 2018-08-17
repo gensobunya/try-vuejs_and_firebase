@@ -21,5 +21,7 @@ npm run build
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-## comment
-TDDに興味があったので、テキスト外学習としてVue-test-util+Jestでテストコードを書きました
+## テキスト外学習
+-1 TDDに興味があったので、テキスト外学習としてVue-test-util+Jestでテストコードを書いた
+-2 CSSの代わりにVuetifyを使って見た目を整える
+-3 テストコードが動作しなくなったので書き直し←イマココ
