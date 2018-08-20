@@ -1,6 +1,7 @@
-import { shallowMount } from '@vue/test-utils'
-import Vuetify from 'vuetify'
-import Home from "@/components/Home.vue"
+import { shallowMount } from '@vue/test-utils';
+import Vue from 'vue'
+import Vuetify from 'vuetify';
+import Home from "@/components/Home.vue";
 import firebase from 'firebase';
 
 const config = {
@@ -13,10 +14,13 @@ const config = {
 };
 firebase.initializeApp(config);
 
+Vue.use(Vuetify);
+
 describe("Home.vue", () => {
   it("ログインボタンをレンダリングする", () => {
-    const wrapper = shallowMount(Home)
-
-    expect(wrapper.find(".login").exists()).toBe(true)
-  })
-})
+    const wrapper = shallowMount(Home);
+    
+    console.log(wrapper.html());
+    expect(wrapper.find(".login").exists()).toBe(true);
+  });
+});
