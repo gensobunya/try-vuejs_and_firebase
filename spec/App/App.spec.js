@@ -19,20 +19,25 @@ Vue.use(Vuetify);
 
 describe("App.vue", () => {
     it("ログアウト状態のときはHomeをレンダリング", () => {
-    const wrapper = mount(App,{
-        data: () => {isnotlogindata}
-    });
-
-      console.log(wrapper.html());
-      expect(wrapper.find(Home).exists()).toBe(true);
+        const wrapper = mount(App,{
+//            data: () => {isnotlogindata}
+        });
+        wrapper.setData(isnotlogindata);
+        wrapper.update();
+        console.log(wrapper.data().isLogin);
+        console.log(wrapper.html());
+        expect(wrapper.first("#home").is("#home")).toBe(true);
     });
     
     it("ログイン状態のときはEditorをレンダリング", () => {
-    const wrapper = mount(App,{
-        data: () => {islogindata}
-    });
-
+        const wrapper = mount(App,{
+//            data: () => {islogindata}
+        });
+        
+        wrapper.setData(islogindata);
+        wrapper.update();
+        console.log(wrapper.data().isLogin);
         console.log(wrapper.html());
-        expect(wrapper.find(Editor).exists()).toBe(true);
-      });
+        expect(wrapper.first("#editor").is("#editor")).toBe(true);
+    });
   });

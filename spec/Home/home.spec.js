@@ -21,6 +21,6 @@ describe("Home.vue", () => {
     const wrapper = mount(Home);
     
     console.log(wrapper.html());
-    expect(wrapper.find(".login").exists()).toBe(true);
+    expect(wrapper.first(".login").is(".login")).toBe(true);
   });
 });
