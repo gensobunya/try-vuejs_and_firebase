@@ -19,6 +19,7 @@ Vue.use(Vuetify);
 describe("Home.vue", () => {
   it("ログインボタンをレンダリングする", () => {
     const wrapper = shallowMount(Home);
+    
     console.log(wrapper.html());
     expect(wrapper.find(".login").exists()).toBe(true);
   });

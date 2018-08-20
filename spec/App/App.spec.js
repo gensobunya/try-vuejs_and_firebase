@@ -19,17 +19,19 @@ Vue.use(Vuetify);
 
 describe("App.vue", () => {
     it("ログアウト状態のときはHomeをレンダリング", () => {
-    const wrapper = shallowMount(App);
+    const wrapper = shallowMount(App,{
+        data: () => {isnotlogindata}
+    });
 
-      wrapper.setData(isnotlogindata);
       console.log(wrapper.html());
       expect(wrapper.find(Home).exists()).toBe(true);
     });
     
     it("ログイン状態のときはEditorをレンダリング", () => {
-    const wrapper = shallowMount(App,);
+    const wrapper = shallowMount(App,{
+        data: () => {islogindata}
+    });
 
-        wrapper.setData(islogindata);
         console.log(wrapper.html());
         expect(wrapper.find(Editor).exists()).toBe(true);
       });

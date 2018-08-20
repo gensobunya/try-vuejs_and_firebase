@@ -33,10 +33,10 @@ describe("Editor.vue", () => {
     
     it("記入したメモのリスト・タイトル・プレビューを表示する", () => {
         const wrapper = shallowMount(Editor,{
-            propsData:{user}
+            propsData:{user},
+            data: () => {data}
         });
 
-        wrapper.setData(data);
         console.log(wrapper.html());
         //オペレーション
         wrapper.find(".markdown").setValue(testmemo); //入力
@@ -50,10 +50,9 @@ describe("Editor.vue", () => {
 
     it("メモを新しく追加し、新しいメモを表示する", () => {
         const wrapper = shallowMount(Editor,{
-            propsData:{user}
+            propsData:{user},
+            data: () => {data}
         });
-        
-        wrapper.setData(data);
         //オペレーション
         wrapper.find(".markdown").setValue(testmemo);
         wrapper.find(".addMemoBtn").trigger("click");//メモ作成ボタン押下...v-bottunの時に動作しない…
@@ -68,10 +67,10 @@ describe("Editor.vue", () => {
 
     it("メモを削除する", () => {
         const wrapper = shallowMount(Editor,{
-            propsData:{user}
+            propsData:{user},
+            data: () => {data}
         });
-        
-        wrapper.setData(data);
+
         //オペレーション
 
         wrapper.find(".markdown").setValue(testmemo);
