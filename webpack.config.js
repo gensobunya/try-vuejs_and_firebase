@@ -89,7 +89,10 @@ module.exports = {
   plugins: [
     // make sure to include the plugin!
     new VueLoaderPlugin()
-  ]
+  ],
+  optimization: {
+    minimize: true
+  }
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -101,12 +104,13 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: false,
-      compress: {
-        warnings: false
-      }
-    }),
+    // webpack4ではいらない
+    // new webpack.optimize.UglifyJsPlugin({
+    //   sourceMap: false,
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
