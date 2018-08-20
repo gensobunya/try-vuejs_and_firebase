@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount } from 'avoriaz';
 import Vue from 'vue'
 import Vuetify from 'vuetify';
 import App from "@/App.vue";
@@ -19,7 +19,7 @@ Vue.use(Vuetify);
 
 describe("App.vue", () => {
     it("ログアウト状態のときはHomeをレンダリング", () => {
-    const wrapper = shallowMount(App,{
+    const wrapper = mount(App,{
         data: () => {isnotlogindata}
     });
 
@@ -28,7 +28,7 @@ describe("App.vue", () => {
     });
     
     it("ログイン状態のときはEditorをレンダリング", () => {
-    const wrapper = shallowMount(App,{
+    const wrapper = mount(App,{
         data: () => {islogindata}
     });
 

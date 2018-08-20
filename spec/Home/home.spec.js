@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount } from 'avoriaz';
 import Vue from 'vue'
 import Vuetify from 'vuetify';
 import Home from "@/components/Home.vue";
@@ -18,7 +18,7 @@ Vue.use(Vuetify);
 
 describe("Home.vue", () => {
   it("ログインボタンをレンダリングする", () => {
-    const wrapper = shallowMount(Home);
+    const wrapper = mount(Home);
     
     console.log(wrapper.html());
     expect(wrapper.find(".login").exists()).toBe(true);

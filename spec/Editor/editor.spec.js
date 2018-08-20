@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount } from 'avoriaz';
 import Vue from 'vue'
 import Vuetify from 'vuetify';
 import Editor from "@/components/Editor.vue";
@@ -23,7 +23,7 @@ describe("Editor.vue", () => {
 
     it("継承したユーザー名を表示する", () => {
         
-        const wrapper = shallowMount(Editor,{
+        const wrapper = mount(Editor,{
             propsData: {user}
         });
 
@@ -32,7 +32,7 @@ describe("Editor.vue", () => {
 
     
     it("記入したメモのリスト・タイトル・プレビューを表示する", () => {
-        const wrapper = shallowMount(Editor,{
+        const wrapper = mount(Editor,{
             propsData:{user},
             data: () => {data}
         });
@@ -49,7 +49,7 @@ describe("Editor.vue", () => {
     });
 
     it("メモを新しく追加し、新しいメモを表示する", () => {
-        const wrapper = shallowMount(Editor,{
+        const wrapper = mount(Editor,{
             propsData:{user},
             data: () => {data}
         });
@@ -66,7 +66,7 @@ describe("Editor.vue", () => {
     });
 
     it("メモを削除する", () => {
-        const wrapper = shallowMount(Editor,{
+        const wrapper = mount(Editor,{
             propsData:{user},
             data: () => {data}
         });
