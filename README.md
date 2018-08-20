@@ -18,8 +18,11 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## 成果物
+
+[MyMarkdown](https://mymarkdown-3b8fc.firebaseapp.com/)
 
 ## テキスト外学習
 - TDDに興味があったので、テキスト外学習としてVue-test-util+Jestでテストコードを書いた
