@@ -19,7 +19,7 @@ Vue.use(Vuetify);
 
 describe("App.vue", () => {
     it("ログアウト状態のときはHomeをレンダリング", () => {
-    const wrapper = shallowMount(App,);
+    const wrapper = shallowMount(App);
 
       wrapper.setData(isnotlogindata);
       console.log(wrapper.html());
