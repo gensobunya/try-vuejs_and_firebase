@@ -1,4 +1,4 @@
-import { shallowMount  } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Vue from 'vue'
 import Vuetify from 'vuetify';
 import Home from "@/components/Home.vue";

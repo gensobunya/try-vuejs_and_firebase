@@ -1,4 +1,4 @@
-import { shallowMount,createLocalVue  } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Vue from 'vue'
 import Vuetify from 'vuetify';
 import Editor from "@/components/Editor.vue";

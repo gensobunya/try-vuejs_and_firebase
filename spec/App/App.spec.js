@@ -1,7 +1,9 @@
-import { shallowMount,createLocalVue  } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Vue from 'vue'
 import Vuetify from 'vuetify';
 import App from "@/App.vue";
+import Home from "@/components/Home.vue"
+import Editor from "@/components/Editor.vue"
 
 const isnotlogindata = {
     isLogin: false,
@@ -21,7 +23,7 @@ describe("App.vue", () => {
 
       wrapper.setData(isnotlogindata);
       console.log(wrapper.html());
-      expect(wrapper.find("home-stub").exists()).toBe(true);
+      expect(wrapper.find(Home).exists()).toBe(true);
     });
     
     it("ログイン状態のときはEditorをレンダリング", () => {
@@ -29,6 +31,6 @@ describe("App.vue", () => {
 
         wrapper.setData(islogindata);
         console.log(wrapper.html());
-        expect(wrapper.find("editor-stub").exists()).toBe(true);
+        expect(wrapper.find(Editor).exists()).toBe(true);
       });
   });
