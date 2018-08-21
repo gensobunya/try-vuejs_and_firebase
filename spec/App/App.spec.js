@@ -12,7 +12,10 @@ const isnotlogindata = {
 
 const islogindata = {
     isLogin: true,
-    userData: null,
+    userData: {
+        displayName: "test user",
+        uid: "testuid",
+    },
 };
 
 Vue.use(Vuetify);
@@ -20,9 +23,11 @@ Vue.use(Vuetify);
 describe("App.vue", () => {
     it("ログアウト状態のときはHomeをレンダリング", () => {
         const wrapper = mount(App,{
-//            data: () => {isnotlogindata}
+           data: () => {
+                return isnotlogindata
+            }
         });
-        wrapper.setData(isnotlogindata);
+
         wrapper.update();
         console.log(wrapper.data().isLogin);
         console.log(wrapper.html());
@@ -31,10 +36,11 @@ describe("App.vue", () => {
     
     it("ログイン状態のときはEditorをレンダリング", () => {
         const wrapper = mount(App,{
-//            data: () => {islogindata}
+           data: () => {
+            return islogindata
+            }
         });
         
-        wrapper.setData(islogindata);
         wrapper.update();
         console.log(wrapper.data().isLogin);
         console.log(wrapper.html());

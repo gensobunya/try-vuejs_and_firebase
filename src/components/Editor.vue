@@ -1,5 +1,5 @@
 <template>
-<v-container align-center grid-list-xl wrap>
+<v-container align-center grid-list-xl wrap id="editor">
     <v-layout column class="header">
         <v-flex class="title">
             <h1>MyMarkdown</h1>
