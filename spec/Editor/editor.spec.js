@@ -62,7 +62,7 @@ describe("Editor.vue", () => {
         wrapper.first(".addMemoBtn").trigger("click");//メモ作成ボタン押下...
         wrapper.find(".memoList")[1].trigger("click");//メモリストから新しいメモ選択
         wrapper.first("#markdown").element.value = testmemo2;
-        wrapper.first("#markdown").simulate('change');//入力
+        wrapper.first("#markdown").trigger('change');//入力
         console.log(wrapper.html());
 
         //追加した内容が表示されているか確認
