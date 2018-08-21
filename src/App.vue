@@ -1,12 +1,10 @@
-<template>
-<div id="app">
+<template id="app">
     <v-app>
         <v-content>
             <Home v-if="!isLogin"></Home>
             <Editor v-if="isLogin" :user="userData"></Editor>
         </v-content>
     </v-app>
-</div>
 </template>
 
 <script>
