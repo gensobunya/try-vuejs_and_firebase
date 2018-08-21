@@ -32,3 +32,4 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 1. CSSの代わりにVuetifyを使って見た目を整える
 1. テストコードが動作しなくなったのでいろいろやるも、vuetifyのボタンやなんやらはスタブ化された後触れないらしい。Triggerでテストできないという課題を抱える
 1. Webpack4へアップデート
+1. 別ブランチを切ってテストツールをAvoriazに変更したバージョンを作成するもtextareaへの入力後トリガーの引き方が分からず詰まる
