@@ -28,7 +28,6 @@ describe("App.vue", () => {
             }
         });
 
-        wrapper.update();
         console.log(wrapper.data().isLogin);
         console.log(wrapper.html());
         expect(wrapper.first("#home").is("#home")).toBe(true);
@@ -41,7 +40,6 @@ describe("App.vue", () => {
             }
         });
         
-        wrapper.update();
         console.log(wrapper.data().isLogin);
         console.log(wrapper.html());
         expect(wrapper.first("#editor").is("#editor")).toBe(true);
