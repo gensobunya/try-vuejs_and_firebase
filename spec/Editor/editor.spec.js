@@ -24,7 +24,10 @@ describe("Editor.vue", () => {
     it("継承したユーザー名を表示する", () => {
         
         const wrapper = mount(Editor,{
-            propsData: {user}
+            propsData: {user},
+            data: () => {
+                return data
+            }
         });
 
         expect(wrapper.first("span.displayName").text()).toBe(user.displayName);
@@ -34,15 +37,13 @@ describe("Editor.vue", () => {
     it("記入したメモのリスト・タイトル・プレビューを表示する", () => {
         const wrapper = mount(Editor,{
             propsData:{user},
-            data: () => {
-                return data
-            }
         });
 
-        console.log(wrapper.html());
         //オペレーション
-        wrapper.first(".markdown").value= testmemo; //入力
-        wrapper.first(".markdown").trigger('change');
+        wrapper.first("#markdown").trigger('focus')
+        wrapper.first("#markdown").value = testmemo; //入力
+        wrapper.first("#markdown").trigger('change');
+        console.log(wrapper.data().memos);
         console.log(wrapper.html());
         //記載内容の一致を確認
         expect(wrapper.first(".memoList").is(".memoList")).toBe(true);
@@ -54,15 +55,14 @@ describe("Editor.vue", () => {
     it("メモを新しく追加し、新しいメモを表示する", () => {
         const wrapper = mount(Editor,{
             propsData:{user},
-            data: () => {data}
         });
         //オペレーション
-        wrapper.first(".markdown").value = testmemo;
-        wrapper.first(".markdown").trigger('change');
+        wrapper.first("#markdown").element.value = testmemo;
+        wrapper.first("#markdown").trigger('input');
         wrapper.first(".addMemoBtn").trigger("click");//メモ作成ボタン押下...
         wrapper.find(".memoList")[1].trigger("click");//メモリストから新しいメモ選択
-        wrapper.first(".markdown").value = testmemo2;
-        wrapper.first(".markdown").simulate('change');//入力
+        wrapper.first("#markdown").element.value = testmemo2;
+        wrapper.first("#markdown").simulate('change');//入力
         console.log(wrapper.html());
 
         //追加した内容が表示されているか確認
@@ -73,17 +73,16 @@ describe("Editor.vue", () => {
     it("メモを削除する", () => {
         const wrapper = mount(Editor,{
             propsData:{user},
-            data: () => {data}
         });
 
         //オペレーション
 
-        wrapper.first(".markdown").value = testmemo;
-        wrapper.first(".markdown").trigger('change');
+        wrapper.first("#markdown").element.value = testmemo;
+        wrapper.first("#markdown").trigger('input');
         wrapper.first(".addMemoBtn").trigger("click");//メモ作成ボタン押下
         wrapper.find(".memoList")[1].trigger("click");//メモリストから新しいメモ選択
-        wrapper.first(".markdown").value = testmemo2;
-        wrapper.first(".markdown").simulate('change');//入力
+        wrapper.first("#markdown").element.value = testmemo2;
+        wrapper.first("#markdown").simulate('change');//入力
         wrapper.find(".memoList")[0].trigger("click");//メモリストから1つめのメモ選択
         wrapper.first(".deleteMemoBtn").trigger("click");//データ削除
         console.log(wrapper.html());
