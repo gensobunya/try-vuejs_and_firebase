@@ -27,7 +27,7 @@
                         <v-list-tile-title class="memoTitle">{{ displayTitle(memo.markdown) }}</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
-                <v-divider v-if="index + 1 < memos.length" :key="index"></v-divider>
+                <v-divider v-if="index + 1 < memos.length"  v-bind:key="index+'devider'"></v-divider>
             </template>
             </v-list>
         </v-flex>
