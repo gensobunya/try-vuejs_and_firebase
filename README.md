@@ -28,6 +28,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 [MyMarkdown](https://mymarkdown-3b8fc.firebaseapp.com/)
 
 ## テキスト外学習
-- TDDに興味があったので、テキスト外学習としてVue-test-util+Jestでテストコードを書いた
-- CSSの代わりにVuetifyを使って見た目を整える
-- テストコードが動作しなくなったのでいろいろやるも、vuetifyのボタンやなんやらはスタブ化された後触れないらしい。Triggerでテストできないやんけ…
+1. TDDに興味があったので、テキスト外学習としてVue-test-util+Jestでテストコードを書いた
+1. CSSの代わりにVuetifyを使って見た目を整える
+1. テストコードが動作しなくなったのでいろいろやるも、vuetifyのボタンやなんやらはスタブ化された後触れないらしい。Triggerでテストできないという課題を抱える
+1. Webpack4へアップデート
