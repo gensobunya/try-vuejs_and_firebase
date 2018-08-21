@@ -2,8 +2,8 @@ import { mount } from 'avoriaz';
 import Vue from 'vue'
 import Vuetify from 'vuetify';
 import App from "@/App.vue";
-import Home from "@/components/Home.vue"
-import Editor from "@/components/Editor.vue"
+// import Home from "@/components/Home.vue"
+// import Editor from "@/components/Editor.vue"
 
 const isnotlogindata = {
     isLogin: false,
