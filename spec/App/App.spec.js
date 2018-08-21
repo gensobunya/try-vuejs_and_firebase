@@ -20,7 +20,9 @@ Vue.use(Vuetify);
 describe("App.vue", () => {
     it("ログアウト状態のときはHomeをレンダリング", () => {
     const wrapper = shallowMount(App,{
-        data: () => {isnotlogindata}
+        data: () => {
+            return isnotlogindata
+        }
     });
 
       console.log(wrapper.html());
@@ -29,7 +31,9 @@ describe("App.vue", () => {
     
     it("ログイン状態のときはEditorをレンダリング", () => {
     const wrapper = shallowMount(App,{
-        data: () => {islogindata}
+        data: () => {
+            return islogindata
+        }
     });
 
         console.log(wrapper.html());

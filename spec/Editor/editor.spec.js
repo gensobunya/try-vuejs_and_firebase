@@ -30,11 +30,15 @@ describe("Editor.vue", () => {
         expect(wrapper.find("span.displayName").text()).toBe(user.displayName);
     });
 
-    
+    //ここから下は動かない
+    //verifyの中身がレンダリングされないから
+
     it("記入したメモのリスト・タイトル・プレビューを表示する", () => {
         const wrapper = shallowMount(Editor,{
             propsData:{user},
-            data: () => {data}
+            data: () => {
+                return data
+            }
         });
 
         console.log(wrapper.html());
@@ -51,7 +55,9 @@ describe("Editor.vue", () => {
     it("メモを新しく追加し、新しいメモを表示する", () => {
         const wrapper = shallowMount(Editor,{
             propsData:{user},
-            data: () => {data}
+            data: () => {
+                return data
+            }
         });
         //オペレーション
         wrapper.find(".markdown").setValue(testmemo);
@@ -68,7 +74,9 @@ describe("Editor.vue", () => {
     it("メモを削除する", () => {
         const wrapper = shallowMount(Editor,{
             propsData:{user},
-            data: () => {data}
+            data: () => {
+                return data
+            }
         });
 
         //オペレーション
