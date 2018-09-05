@@ -32,4 +32,4 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 1. CSSの代わりにVuetifyを使って見た目を整える
 1. テストコードが動作しなくなったのでいろいろやるも、Vuetifyのボタンやなんやらはスタブ化されてHTMLレンダリングされないため、Triggerでエミュレートできないという課題を抱える（動かないテストはコメントアウト）
 1. Webpack4へアップデート
-1. 別ブランチを切ってテストツールをAvoriazに変更したブランチを作成。Vertifyのコンポーネントがレンダリングされるがtextareaへのinputでmethodが動かないため困る
+1. ~別ブランチを切ってテストツールをAvoriazに変更したブランチを作成。Vertifyのコンポーネントがレンダリングされるがtextareaへのinputでmethodが動かないため困る~Vue-test-utilのIssueがコミットされたので、次回リリース後にVue-test-utilを使ってテストを書き直す予定
