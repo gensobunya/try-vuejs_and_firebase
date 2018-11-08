@@ -1,10 +1,10 @@
-import { shallowMount } from '@vue/test-utils';
-import Vue from 'vue'
+import { shallowMount,createLocalVue } from '@vue/test-utils';
 import Vuetify from 'vuetify';
 import Editor from "@/components/Editor.vue";
 import marked from 'marked';
 
-Vue.use(Vuetify);
+const localvue = createLocalVue();
+localvue.use(Vuetify);
 
 describe("Editor.vue", () => {
     //Start Test data
@@ -24,6 +24,7 @@ describe("Editor.vue", () => {
     it("継承したユーザー名を表示する", () => {
         
         const wrapper = shallowMount(Editor,{
+            localvue: localvue,
             propsData: {user}
         });
 
@@ -35,6 +36,7 @@ describe("Editor.vue", () => {
 
     it("記入したメモのリスト・タイトル・プレビューを表示する", () => {
         const wrapper = shallowMount(Editor,{
+            localvue,
             propsData:{user},
             data: () => {
                 return data
@@ -54,6 +56,7 @@ describe("Editor.vue", () => {
 
     it("メモを新しく追加し、新しいメモを表示する", () => {
         const wrapper = shallowMount(Editor,{
+            localvue,
             propsData:{user},
             data: () => {
                 return data
@@ -73,6 +76,7 @@ describe("Editor.vue", () => {
 
     it("メモを削除する", () => {
         const wrapper = shallowMount(Editor,{
+            localvue,
             propsData:{user},
             data: () => {
                 return data
